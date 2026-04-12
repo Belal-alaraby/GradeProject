@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ShieldCheck, ChevronDown, Menu, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from './ui/Button';
 import { Container } from '../layout/Container';
 import repairIcon from '../assets/repair.png';
@@ -7,7 +8,7 @@ import repairIcon from '../assets/repair.png';
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -48,7 +49,7 @@ export function Navbar() {
                 aria-label="CarMa Logo"
               />
               <div className="leading-tight">
-                CarMa
+                سيارتك
                 <span className="block text-xs text-slate-500 font-medium">خدمة صيانة السيارات</span>
               </div>
             </a>
@@ -68,8 +69,8 @@ export function Navbar() {
           </div>
 
           <div className="hidden lg:flex items-center gap-3">
-            <Button variant="secondary">تسجيل الدخول</Button>
-            <Button variant="primary">إنشاء حساب</Button>
+            <Button variant="secondary" onClick={() => navigate('/dashboard')}>تسجيل الدخول</Button>
+            <Button variant="primary" onClick={() => navigate('/dashboard')}>إنشاء حساب</Button>
           </div>
 
           <div className="lg:hidden">
@@ -98,8 +99,8 @@ export function Navbar() {
               ))}
             </div>
             <div className="flex flex-col gap-3 px-4 pt-4 border-t border-slate-100">
-              <Button variant="secondary" className="w-full justify-center">تسجيل الدخول</Button>
-              <Button variant="primary" className="w-full justify-center">إنشاء حساب</Button>
+              <Button variant="secondary" className="w-full justify-center" onClick={() => navigate('/dashboard')}>تسجيل الدخول</Button>
+              <Button variant="primary" className="w-full justify-center" onClick={() => navigate('/dashboard')}>إنشاء حساب</Button>
             </div>
           </div>
         )}
