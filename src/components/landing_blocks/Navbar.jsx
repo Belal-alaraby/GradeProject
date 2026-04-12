@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { ShieldCheck, ChevronDown, Menu, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from './ui/Button';
-import { Container } from '../layout/Container';
-import repairIcon from '../assets/repair.png';
+import { Button } from '../ui/Button';
+import { Container } from '../../layout/Container';
+import repairIcon from '../../assets/repair.png';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,16 +1,16 @@
 import React from 'react';
-import { Navbar } from '../components/Navbar';
-import { Hero } from '../components/Hero';
-import { Stats } from '../components/Stats';
-import { Features } from '../components/Features';
-import { HowItWorks } from '../components/HowItWorks';
-import { WhyUs } from '../components/WhyUs';
-import { Pricing } from '../components/Pricing';
-import { Testimonials } from '../components/Testimonials';
+import { Navbar } from '../components/landing_blocks/Navbar';
+import { Hero } from '../components/landing_blocks/Hero';
+import { Stats } from '../components/landing_blocks/Stats';
+import { Features } from '../components/landing_blocks/Features';
+import { HowItWorks } from '../components/landing_blocks/HowItWorks';
+import { WhyUs } from '../components/landing_blocks/WhyUs';
+import { Pricing } from '../components/landing_blocks/Pricing';
+import { Testimonials } from '../components/landing_blocks/Testimonials';
 import { MessageCircle } from 'lucide-react';
-import { CTA } from '../components/CTA';
-import { AppDownload } from '../components/AppDownload';
-import { Footer } from '../components/Footer';
+import { CTA } from '../components/landing_blocks/CTA';
+import { AppDownload } from '../components/landing_blocks/AppDownload';
+import { Footer } from '../components/landing_blocks/Footer';
 
 export function Home() {
   return (

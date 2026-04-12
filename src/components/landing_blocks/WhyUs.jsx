@@ -1,7 +1,7 @@
 import { MapPin, Activity, ShieldCheck, Users, Zap, CheckCircle2 } from 'lucide-react';
-import { Container } from '../layout/Container';
-import { SectionWrapper } from '../layout/SectionWrapper';
-import { Reveal } from './ui/Reveal';
+import { Container } from '../../layout/Container';
+import { SectionWrapper } from '../../layout/SectionWrapper';
+import { Reveal } from '../ui/Reveal';
 
 export function WhyUs() {
   const reasons = [

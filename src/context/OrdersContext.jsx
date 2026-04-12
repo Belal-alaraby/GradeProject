@@ -24,12 +24,30 @@ export function OrdersProvider({ children }) {
     }
   ]);
 
+  const [transactions, setTransactions] = useState([
+    { id: 11, type: 'payment', title: 'دفع - تغيير الزيت', date: '31 مارس 2026', time: '02:30 م', amount: -350 },
+    { id: 12, type: 'recharge', title: 'شحن المحفظة بتطبيق بنكي', date: '30 مارس 2026', time: '10:15 ص', amount: 1500 },
+    { id: 13, type: 'payment', title: 'دفع - فحص شامل للسيارة', date: '28 مارس 2026', time: '05:45 م', amount: -250 },
+    { id: 14, type: 'recharge', title: 'شحن بالبطاقة الائتمانية', date: '25 مارس 2026', time: '01:00 م', amount: 2500 }
+  ]);
+
   const addOrder = (order) => {
     setOrders((prevOrders) => [order, ...prevOrders]);
+
+    const newTransaction = {
+      id: Math.floor(Math.random() * 90000),
+      type: 'payment',
+      title: `دفع - ${order.serviceName}`,
+      date: order.date,
+      time: order.time,
+      amount: -order.price
+    };
+    
+    setTransactions((prev) => [newTransaction, ...prev]);
   };
 
   return (
-    <OrdersContext.Provider value={{ orders, addOrder }}>
+    <OrdersContext.Provider value={{ orders, addOrder, transactions }}>
       {children}
     </OrdersContext.Provider>
   );

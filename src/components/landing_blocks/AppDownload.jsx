@@ -1,7 +1,7 @@
 import React from 'react';
 import { Apple, Play, Check, Smartphone } from 'lucide-react';
-import { Container } from '../layout/Container';
-import { SectionWrapper } from '../layout/SectionWrapper';
+import { Container } from '../../layout/Container';
+import { SectionWrapper } from '../../layout/SectionWrapper';
 
 export function AppDownload() {
   const features = [

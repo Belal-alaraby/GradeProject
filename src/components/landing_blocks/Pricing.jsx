@@ -1,8 +1,8 @@
 import React from 'react';
 import { Check, Star } from 'lucide-react';
-import { Container } from '../layout/Container';
-import { SectionWrapper } from '../layout/SectionWrapper';
-import { Reveal } from './ui/Reveal';
+import { Container } from '../../layout/Container';
+import { SectionWrapper } from '../../layout/SectionWrapper';
+import { Reveal } from '../ui/Reveal';
 
 export function Pricing() {
   const plans = [

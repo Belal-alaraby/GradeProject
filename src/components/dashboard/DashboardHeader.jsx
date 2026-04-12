@@ -1,13 +1,29 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { Search, Bell, User } from 'lucide-react';
 
 export function DashboardHeader() {
+  const location = useLocation();
+  const getPageTitle = () => {
+    switch (location.pathname) {
+      case '/dashboard': return 'لوحة التحكم';
+      case '/dashboard/new-request': return 'طلب خدمة جديدة';
+      case '/dashboard/requests': return 'طلباتي';
+      case '/dashboard/wallet': return 'المحفظة';
+      case '/dashboard/notifications': return 'الإشعارات';
+      case '/dashboard/support': return 'الدعم';
+      case '/dashboard/profile': return 'الملف الشخصي';
+      case '/dashboard/settings': return 'الإعدادات';
+      default: return 'لوحة التحكم';
+    }
+  };
+  
   return (
     <header className="h-20 bg-white border-b border-slate-200/50 sticky top-0 z-30 px-8 flex items-center justify-between transition-all duration-300">
       
       {/* Title Section */}
       <div className="flex flex-col">
-        <h2 className="text-xl font-bold text-slate-800">لوحة التحكم</h2>
+        <h2 className="text-xl font-bold text-slate-800">{getPageTitle()}</h2>
         <p className="text-sm text-slate-500">مرحباً بك في منصة سيارتك</p>
       </div>
 

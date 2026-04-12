@@ -1,9 +1,9 @@
 import React from 'react';
 import { Search, MapPin, Send, Star } from 'lucide-react';
-import { Container } from '../layout/Container';
-import { SectionWrapper } from '../layout/SectionWrapper';
-import { Reveal } from './ui/Reveal';
-import { Button } from './ui/Button';
+import { Container } from '../../layout/Container';
+import { SectionWrapper } from '../../layout/SectionWrapper';
+import { Reveal } from '../ui/Reveal';
+import { Button } from '../ui/Button';
 
 export function HowItWorks() {
   const steps = [

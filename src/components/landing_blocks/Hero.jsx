@@ -1,9 +1,9 @@
 import React from 'react';
 import { ShieldCheck, ArrowLeft, CheckCircle2 } from 'lucide-react';
-import { Button } from './ui/Button';
-import { Container } from '../layout/Container';
-import { SectionWrapper } from '../layout/SectionWrapper';
-import heroImg from '../assets/hero-winter.png';
+import { Button } from '../ui/Button';
+import { Container } from '../../layout/Container';
+import { SectionWrapper } from '../../layout/SectionWrapper';
+import heroImg from '../../assets/hero-winter.png';
 
 export function Hero() {
   return (

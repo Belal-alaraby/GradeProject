@@ -1,8 +1,8 @@
 import React from 'react';
-import { Container } from '../layout/Container';
-import { SectionWrapper } from '../layout/SectionWrapper';
+import { Container } from '../../layout/Container';
+import { SectionWrapper } from '../../layout/SectionWrapper';
 import { Star, Quote } from 'lucide-react';
-import { Reveal } from './ui/Reveal';
+import { Reveal } from '../ui/Reveal';
 
 export function Testimonials() {
   const reviews = [

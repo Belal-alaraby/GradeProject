@@ -1,6 +1,6 @@
 import React from 'react';
 import { ShieldCheck, MapPin, Phone, Mail, Clock } from 'lucide-react';
-import { Container } from '../layout/Container';
+import { Container } from '../../layout/Container';
 
 // Custom SVG components since lucide-react removed brand icons
 const FacebookIcon = ({ size = 24, className = '' }) => (

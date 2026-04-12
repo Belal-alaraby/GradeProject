@@ -1,7 +1,7 @@
 import React from 'react';
-import { Container } from '../layout/Container';
-import { SectionWrapper } from '../layout/SectionWrapper';
-import { AnimatedCounter } from './ui/AnimatedCounter';
+import { Container } from '../../layout/Container';
+import { SectionWrapper } from '../../layout/SectionWrapper';
+import { AnimatedCounter } from '../ui/AnimatedCounter';
 
 export function Stats() {
   const stats = [

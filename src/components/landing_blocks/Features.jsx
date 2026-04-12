@@ -1,9 +1,9 @@
 import React from 'react';
 import { BatteryCharging, Droplet, Disc, ArrowLeft, Droplets, PhoneCall, Truck } from 'lucide-react';
-import { Container } from '../layout/Container';
-import { SectionWrapper } from '../layout/SectionWrapper';
-import { AnimatedCounter } from './ui/AnimatedCounter';
-import { Reveal } from './ui/Reveal';
+import { Container } from '../../layout/Container';
+import { SectionWrapper } from '../../layout/SectionWrapper';
+import { AnimatedCounter } from '../ui/AnimatedCounter';
+import { Reveal } from '../ui/Reveal';
 
 export function Features() {
   const services = [
