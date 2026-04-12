@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@config "../tailwind.config.js";
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  font-family: "Cairo", sans-serif;
+}
