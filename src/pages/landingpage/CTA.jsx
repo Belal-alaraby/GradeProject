@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Container } from "../../layout/Container";
 import { SectionWrapper } from "../../layout/SectionWrapper";
 import { ArrowLeft } from "lucide-react";
 
 export default function CTA() {
+  const navigate = useNavigate();
   return (
     <SectionWrapper className="py-14">
       <Container>
@@ -45,7 +47,10 @@ export default function CTA() {
             </p>
 
             {/* Primary CTA */}
-            <button className="group/button inline-flex items-center gap-2 bg-white text-primary px-8 py-3.5 rounded-full font-bold text-base shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+            <button 
+              onClick={() => navigate('/login')}
+              className="group/button inline-flex items-center gap-2 bg-white text-primary px-8 py-3.5 rounded-full font-bold text-base shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            >
 
               احجز خدمتك الآن
 

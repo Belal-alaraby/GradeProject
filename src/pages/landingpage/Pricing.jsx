@@ -1,10 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Check, Star } from "lucide-react";
 import { Container } from "../../layout/Container";
 import { SectionWrapper } from "../../layout/SectionWrapper";
 import { Reveal } from "../../components/ui/Reveal";
 
 export default function Pricing() {
+  const navigate = useNavigate();
   const plans = [
     {
       id: 1,
@@ -134,6 +136,7 @@ export default function Pricing() {
                 </ul>
 
                 <button
+                  onClick={() => navigate('/login')}
                   className={`w-full py-4 rounded-full font-bold transition-colors ${plan.buttonClass}`}
                 >
                   اشترك الآن

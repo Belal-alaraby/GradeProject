@@ -1,8 +1,11 @@
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Settings, Car, Star, MapPin, Clock, PhoneCall, MessageSquare, CarFront, Droplets, Plus, Package, Wallet, Battery, Droplet, CircleDot, Truck, ArrowLeft, CheckCircle2, XCircle, HelpCircle, MessageCircle } from 'lucide-react';
 import { Button } from '../components/ui/Button'; // reusing existing button
+import { useUser } from '../context/UserContext';
 
-export function DashboardHome() {
+export function UserDashboard() {
+  const navigate = useNavigate();
+  const { userData } = useUser();
   return (
     <div className="space-y-8 animate-fade-in-up">
       
@@ -14,17 +17,17 @@ export function DashboardHome() {
         <div className="flex items-center justify-between relative z-10">
           <div>
             <h1 className="text-3xl font-extrabold mb-2 flex items-center gap-3">
-              مرحباً، أحمد! 👋
+              مرحباً، {userData.name}! 👋
             </h1>
             <p className="text-blue-100 text-lg">نتمنى لك يوم سعيد. كيف يمكننا مساعدتك اليوم؟</p>
           </div>
           
           <div className="hidden md:flex bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-white/20">
              {/* Simple car graphic matched from the image */}
-             <div className="text-white relative">
-               <CarFront size={64} className="text-red-500 fill-red-500 drop-shadow-md" />
-               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-3 bg-red-800 rounded-sm mt-1"></div>
-             </div>
+            <div className="text-white relative">
+              <CarFront size={64} className="text-red-500 fill-red-500 drop-shadow-md" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-3 bg-red-800 rounded-sm mt-1"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -116,32 +119,44 @@ export function DashboardHome() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         
         {/* Box 1 */}
-        <button className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center justify-center gap-4 hover:shadow-md transition-all group">
-          <div className="w-14 h-14 bg-green-500 text-white rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+        <button 
+          onClick={() => navigate('new-request')}
+          className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 flex flex-col items-center justify-center gap-4 hover:shadow-md hover:-translate-y-1 transition-all group"
+        >
+          <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-3xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
             <Plus size={28} />
           </div>
           <span className="font-bold text-slate-800">احجز خدمة جديدة</span>
         </button>
 
         {/* Box 2 */}
-        <button className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center justify-center gap-4 hover:shadow-md transition-all group">
-          <div className="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-            <MapPin size={28} />
+        <button 
+          onClick={() => navigate('requests')}
+          className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 flex flex-col items-center justify-center gap-4 hover:shadow-md hover:-translate-y-1 transition-all group"
+        >
+          <div className="w-16 h-16 bg-orange-50 text-orange-500 rounded-3xl flex items-center justify-center group-hover:bg-orange-500 group-hover:text-white transition-all shadow-sm">
+            <Package size={28} />
           </div>
           <span className="font-bold text-slate-800">تتبع الطلب</span>
         </button>
 
         {/* Box 3 */}
-        <button className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center justify-center gap-4 hover:shadow-md transition-all group">
-          <div className="w-14 h-14 bg-purple-500 text-white rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-            <Package size={28} />
+        <button 
+          onClick={() => navigate('requests')}
+          className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 flex flex-col items-center justify-center gap-4 hover:shadow-md hover:-translate-y-1 transition-all group"
+        >
+          <div className="w-16 h-16 bg-green-50 text-green-600 rounded-3xl flex items-center justify-center group-hover:bg-green-600 group-hover:text-white transition-all shadow-sm">
+            <Clock size={28} />
           </div>
           <span className="font-bold text-slate-800">إعادة طلب خدمة</span>
         </button>
 
         {/* Box 4 */}
-        <button className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center justify-center gap-4 hover:shadow-md transition-all group">
-          <div className="w-14 h-14 bg-orange-500 text-white rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+        <button 
+          onClick={() => navigate('wallet')}
+          className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 flex flex-col items-center justify-center gap-4 hover:shadow-md hover:-translate-y-1 transition-all group"
+        >
+          <div className="w-16 h-16 bg-purple-50 text-purple-600 rounded-3xl flex items-center justify-center group-hover:bg-purple-600 group-hover:text-white transition-all shadow-sm">
             <Wallet size={28} />
           </div>
           <span className="font-bold text-slate-800">شحن المحفظة</span>
@@ -158,14 +173,18 @@ export function DashboardHome() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           
           {[
-            { name: "تغيير البطارية", price: "500 جنيه", icon: <Battery size={24} />, bg: "bg-blue-600" },
-            { name: "تغيير الزيت", price: "350 جنيه", icon: <Droplet size={24} />, bg: "bg-orange-500" },
-            { name: "خدمة الإطارات", price: "250 جنيه", icon: <CircleDot size={24} />, bg: "bg-slate-600" },
-            { name: "غسيل السيارة", price: "200 جنيه", icon: <Droplets size={24} />, bg: "bg-cyan-500" },
-            { name: "خدمة الطوارئ", price: "300 جنيه", icon: <PhoneCall size={24} />, bg: "bg-red-500" },
-            { name: "خدمة الونش", price: "600 جنيه", icon: <Truck size={24} />, bg: "bg-purple-500" },
+            { id: "battery", name: "تغيير البطارية", price: "500 جنيه", icon: <Battery size={24} />, bg: "bg-blue-600" },
+            { id: "oil", name: "تغيير الزيت", price: "350 جنيه", icon: <Droplet size={24} />, bg: "bg-orange-500" },
+            { id: "tires", name: "خدمة الإطارات", price: "250 جنيه", icon: <CircleDot size={24} />, bg: "bg-slate-600" },
+            { id: "wash", name: "غسيل السيارة", price: "200 جنيه", icon: <Droplets size={24} />, bg: "bg-cyan-500" },
+            { id: "emergency", name: "خدمة الطوارئ", price: "300 جنيه", icon: <PhoneCall size={24} />, bg: "bg-red-500" },
+            { id: "towing", name: "خدمة الونش", price: "600 جنيه", icon: <Truck size={24} />, bg: "bg-purple-500" },
           ].map((service, idx) => (
-            <button key={idx} className="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 flex flex-col items-center justify-center gap-3 hover:shadow-md hover:-translate-y-1 transition-all group">
+            <button 
+              key={idx} 
+              onClick={() => navigate('new-request', { state: { serviceId: service.id } })}
+              className="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 flex flex-col items-center justify-center gap-3 hover:shadow-md hover:-translate-y-1 transition-all group"
+            >
               <div className={`w-14 h-14 ${service.bg} text-white rounded-2xl flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform`}>
                 {service.icon}
               </div>
@@ -186,7 +205,10 @@ export function DashboardHome() {
         <div className="lg:col-span-2 space-y-4">
           <div className="flex items-center justify-between mb-2">
             <h2 className="text-xl font-bold text-slate-800">الطلبات الأخيرة</h2>
-            <button className="text-secondary text-sm font-bold flex items-center gap-1 hover:text-primary transition-colors">
+            <button 
+              onClick={() => navigate('requests')}
+              className="text-secondary text-sm font-bold flex items-center gap-1 hover:text-primary transition-colors"
+            >
               عرض الكل
               <ArrowLeft size={16} />
             </button>
@@ -246,8 +268,18 @@ export function DashboardHome() {
               </div>
             </div>
             <div className="flex gap-3">
-              <button className="flex-1 bg-purple-400/30 text-white font-bold py-3 rounded-xl text-sm hover:bg-purple-400/50 transition-colors backdrop-blur-sm">العمليات</button>
-              <button className="flex-1 bg-white text-purple-600 font-bold py-3 rounded-xl text-sm hover:bg-slate-50 transition-colors">شحن الرصيد</button>
+              <button 
+                onClick={() => navigate('wallet')}
+                className="flex-1 bg-purple-400/30 text-white font-bold py-3 rounded-xl text-sm hover:bg-purple-400/50 transition-colors backdrop-blur-sm"
+              >
+                العمليات
+              </button>
+              <button 
+                onClick={() => navigate('wallet')}
+                className="flex-1 bg-white text-purple-600 font-bold py-3 rounded-xl text-sm hover:bg-slate-50 transition-colors"
+              >
+                شحن الرصيد
+              </button>
             </div>
           </div>
 
@@ -260,7 +292,10 @@ export function DashboardHome() {
             <p className="text-slate-500 text-sm mb-6">هل تحتاج مساعدة؟ نحن هنا لخدمتك</p>
             
             <div className="space-y-3">
-              <button className="w-full flex items-center justify-between p-3 bg-blue-50/50 hover:bg-blue-50 text-blue-700 rounded-xl transition-colors group border border-blue-100">
+              <button 
+                onClick={() => navigate('support')}
+                className="w-full flex items-center justify-between p-3 bg-blue-50/50 hover:bg-blue-50 text-blue-700 rounded-xl transition-colors group border border-blue-100"
+              >
                 <div className="flex items-center gap-3">
                   <HelpCircle size={18} />
                   <span className="font-bold text-sm">الأسئلة الشائعة</span>

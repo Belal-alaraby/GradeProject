@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Battery, Droplet, CircleDot, Droplets, PhoneCall, Truck, Clock, CheckCircle2, Home, Briefcase, MapPin, LocateFixed, Calendar, Car, Edit, Check, CreditCard, Smartphone, Wallet, Banknote, ShieldCheck } from 'lucide-react';
 import { useOrders } from '../context/OrdersContext';
 
 export function NewRequest() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { addOrder } = useOrders();
 
+  const initialService = location.state?.serviceId || null;
+
   const [currentStep, setCurrentStep] = useState(1);
-  const [selectedService, setSelectedService] = useState(null);
+  const [selectedService, setSelectedService] = useState(initialService);
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState(null);
 

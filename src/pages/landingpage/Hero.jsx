@@ -1,10 +1,12 @@
 import React from "react";
 import { ShieldCheck, ArrowLeft, CheckCircle2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/ui/Button";
 import { Container } from "../../layout/Container";
 import { SectionWrapper } from "../../layout/SectionWrapper";
 import heroImg from "../../assets/hero-winter.png";
 export  default function Hero() {
+  const navigate = useNavigate();
   return (
     <SectionWrapper id="hero" className="overflow-hidden">
       <Container>
@@ -26,7 +28,7 @@ export  default function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              <Button variant="primary" icon={<ArrowLeft size={18} />}>
+              <Button variant="primary" icon={<ArrowLeft size={18} />} onClick={() => navigate('/login')}>
                 احجز الآن
               </Button>
               <Button variant="secondary" icon={<ArrowLeft size={18} />}>

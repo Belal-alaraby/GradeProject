@@ -1,24 +1,30 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Home } from './pages/Home';
+import Home from './pages/landingpage/Home';
 import { DashboardLayout } from './layout/DashboardLayout';
-import { DashboardHome } from './pages/DashboardHome';
+import { UserDashboard } from './pages/UserDashboard';
 import { NewRequest } from './pages/NewRequest';
 import { Requests } from './pages/Requests';
 import { Wallet } from './pages/Wallet';
 import { Notifications } from './pages/Notifications';
+import LoginForm from './pages/login/loginform';
+import Register from './pages/login/Register';
 import { OrdersProvider } from './context/OrdersContext';
+import { UserProvider } from './context/UserContext';
 
 function App() {
   return (
-    <OrdersProvider>
-      <BrowserRouter>
+    <UserProvider>
+      <OrdersProvider>
+        <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/register" element={<Register />} />
           
           {/* Dashboard Routes */}
           <Route path="/dashboard" element={<DashboardLayout />}>
-          <Route index element={<DashboardHome />} />
+          <Route index element={<UserDashboard />} />
           <Route path="new-request" element={<NewRequest />} />
           <Route path="requests" element={<Requests />} />
           <Route path="wallet" element={<Wallet />} />
@@ -28,8 +34,9 @@ function App() {
           <Route path="settings" element={<div className="p-4">الإعدادات</div>} />
         </Route>
       </Routes>
-      </BrowserRouter>
-    </OrdersProvider>
+        </BrowserRouter>
+      </OrdersProvider>
+    </UserProvider>
   );
 }
 

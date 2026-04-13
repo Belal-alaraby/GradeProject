@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { ShieldCheck, ChevronDown, Menu, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/ui/Button";
 import { Container } from "../../layout/Container";
 import repairIcon from "../../assets/repair.png";
 export  default function Navbar() {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -73,8 +75,8 @@ export  default function Navbar() {
           </div>
 
           <div className="hidden lg:flex items-center gap-3">
-            <Button variant="secondary">تسجيل الدخول</Button>
-            <Button variant="primary">إنشاء حساب</Button>
+            <Button variant="secondary" onClick={() => navigate('/login')}>تسجيل الدخول</Button>
+            <Button variant="primary" onClick={() => navigate('/register')}>إنشاء حساب</Button>
           </div>
 
           <div className="lg:hidden">
@@ -103,10 +105,10 @@ export  default function Navbar() {
               ))}
             </div>
             <div className="flex flex-col gap-3 px-4 pt-4 border-t border-slate-100">
-              <Button variant="secondary" className="w-full justify-center">
+              <Button variant="secondary" className="w-full justify-center" onClick={() => navigate('/login')}>
                 تسجيل الدخول
               </Button>
-              <Button variant="primary" className="w-full justify-center">
+              <Button variant="primary" className="w-full justify-center" onClick={() => navigate('/register')}>
                 إنشاء حساب
               </Button>
             </div>
